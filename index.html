@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Loaiza Rodriguez - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .profile-text {
+            text-align: justify;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skill-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .experience-item {
+            margin-bottom: 25px;
+            padding-left: 25px;
+            border-left: 2px solid #667eea;
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        
+        .experience-header {
+            margin-bottom: 10px;
+        }
+        
+        .job-title {
+            font-size: 1.2em;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .company {
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        .date {
+            color: #888;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        .responsibilities {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .responsibilities li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .education-item, .cert-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .cert-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+        
+        .cert-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .cert-org {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FELIPE LOAIZA RODRIGUEZ</h1>
+            <div class="subtitle">Analista de Soporte Técnico Ssr. / Infraestructura IT</div>
+            <div class="contact-info">
+                <div class="contact-item">📍 Buenos Aires, Argentina</div>
+                <div class="contact-item">📱 11 6623-2997</div>
+                <div class="contact-item">✉️ feloaiza@outlook.com</div>
+                <div class="contact-item">🔗 <a href="https://linkedin.com/in/felipeloaizar/" style="color: white;">linkedin.com/in/felipeloaizar</a></div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Perfil Profesional -->
+            <div class="section">
+                <h2 class="section-title">👤 PERFIL PROFESIONAL</h2>
+                <p class="profile-text">
+                    Técnico en Sistemas Informáticos con más de 5 años de experiencia en soporte técnico nivel 2 y administración de infraestructura. Especialista en optimización de entornos operativos (Windows/Linux), virtualización y seguridad informática. Proactivo, con gran capacidad de resolución de incidentes críticos y orientado a la mejora continua de los servicios IT.
+                </p>
+            </div>
+            
+            <!-- Competencias Técnicas -->
+            <div class="section">
+                <h2 class="section-title">🛠️ COMPETENCIAS TÉCNICAS</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Sistemas Operativos</strong>
+                        Linux (Debian, Ubuntu, CentOS), Windows Server
+                    </div>
+                    <div class="skill-item">
+                        <strong>Virtualización</strong>
+                        VMware ESXi, Workstation, VirtualBox
+                    </div>
+                    <div class="skill-item">
+                        <strong>Monitoreo</strong>
+                        Zabbix, Grafana
+                    </div>
+                    <div class="skill-item">
+                        <strong>Seguridad y Backups</strong>
+                        Veeam Backup & Replication, SSH, Ethical Hacking
+                    </div>
+                    <div class="skill-item">
+                        <strong>Cloud & Gestión</strong>
+                        Office 365, Google Workspace, Active Directory
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experiencia Laboral -->
+            <div class="section">
+                <h2 class="section-title">💼 EXPERIENCIA LABORAL</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">IT Support Specialist</div>
+                        <div class="company">Tec5</div>
+                        <div class="date">Abril 2023 – Octubre 2025</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Configuración de equipos nuevos para despliegue en Active Directory</li>
+                        <li>Gestión de infraestructura de impresión en red y despliegue de software corporativo</li>
+                        <li>Ejecución de upgrades de sistemas operativos y soporte presencial/remoto a usuarios críticos</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">IT Support</div>
+                        <div class="company">Tec-Ser</div>
+                        <div class="date">Septiembre 2022 – Abril 2023</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Gestión de identidades en Active Directory, Office 365 y Google Workspace</li>
+                        <li>Mantenimiento preventivo de equipos de escritorio y periféricos</li>
+                        <li>Configuración de notebooks e impresoras en red</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="job-title">Analista de Soporte Técnico</div>
+                        <div class="company">Novatium ARL S.A.</div>
+                        <div class="date">Enero 2017 – Julio 2022</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Soporte técnico integral y resolución de incidencias de hardware/software</li>
+                        <li>Mantenimiento de la continuidad operativa de los puestos de trabajo</li>
+                        <li>Configuración de VDI y nuevas estaciones de trabajo</li>
+                        <li>Limpieza y mantenimiento de equipos de cómputo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Formación Académica -->
+            <div class="section">
+                <h2 class="section-title">🎓 FORMACIÓN ACADÉMICA</h2>
+                <div class="education-item">
+                    <strong>Tecnología en Sistemas Informáticos</strong><br>
+                    Universidad de Caldas | 2008
+                </div>
+                <div class="education-item">
+                    <strong>Tecnicatura en Ciberseguridad</strong><br>
+                    UNSO | Cursado parcial
+                </div>
+            </div>
+            
+            <!-- Certificaciones -->
+            <div class="section">
+                <h2 class="section-title">🏆 CERTIFICACIONES Y CURSOS</h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Multicloud Network Associate</div>
+                        <div class="cert-org">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Certificado Informática Forense</div>
+                        <div class="cert-org">2025</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Bootcamp Analista SOC Nivel 1-V5</div>
+                        <div class="cert-org">2024</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">IT Academy: Cloud and Virtualization</div>
+                        <div class="cert-org">2024</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Ethical Hacking / Red Team (3ra Ed.)</div>
+                        <div class="cert-org">Hacker Mentor | 2023</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Ethical Hacking | Red Team (2da Ed.)</div>
+                        <div class="cert-org">2022</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Seguridad Informática</div>
+                        <div class="cert-org">DragonJar | 2022</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
