@@ -50,6 +50,15 @@
             padding: 20px;
         }
         
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -72,12 +81,12 @@
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: float 6s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
         }
         
         .header-content {
@@ -388,6 +397,7 @@
 <body>
     <div class="container">
         <div class="header">
+            <canvas id="particles-canvas"></canvas>
             <div class="header-content">
                 <h1>FELIPE LOAIZA RODRIGUEZ</h1>
                 <div class="subtitle">Analista de Soporte Técnico Ssr. / Infraestructura IT</div>
@@ -415,7 +425,7 @@
                 <div class="skills-grid">
                     <div class="skill-item">
                         <strong>Sistemas Operativos</strong>
-                        Linux (Debian, Ubuntu, CentOS), Windows Server, Windows 10/11
+                        Linux (Debian, Ubuntu, CentOS), Windows Server
                     </div>
                     <div class="skill-item">
                         <strong>Virtualización</strong>
@@ -442,7 +452,7 @@
                 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <div class="job-title">IT Support Specialist - Administrador de Sistemas </div>
+                        <div class="job-title">IT Support Specialist - Administrador de Sistemas</div>
                         <div class="company">Tec5</div>
                         <div class="date">Abril 2023 – Octubre 2025</div>
                     </div>
@@ -466,7 +476,6 @@
                         <li>Gestión de identidades en Active Directory, Office 365 y Google Workspace</li>
                         <li>Mantenimiento preventivo de equipos de escritorio y periféricos</li>
                         <li>Configuración de notebooks e impresoras en red</li>
-                        <li>Configuracion de VPN a usuarios remotos</li>
                     </ul>
                 </div>
                 
@@ -534,5 +543,118 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        // Particle Network Animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        let particles = [];
+        const particleCount = 50;
+        const maxDistance = 120;
+        let mouse = { x: null, y: null, radius: 150 };
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                
+                // Mouse interaction
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        this.x -= (dx / distance) * force * 2;
+                        this.y -= (dy / distance) * force * 2;
+                    }
+                }
+            }
+            
+            draw() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function init() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function connect() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance) {
+                        const opacity = 1 - (distance / maxDistance);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            connect();
+            requestAnimationFrame(animate);
+        }
+        
+        // Mouse tracking
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        
+        canvas.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        
+        // Responsive resize
+        window.addEventListener('resize', () => {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            init();
+        });
+        
+        init();
+        animate();
+    </script>
 </body>
 </html>
