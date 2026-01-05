@@ -41,14 +41,17 @@
             z-index: 1;
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
+            background: transparent;
         }
         
         .header {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
             color: white;
             padding: 50px 40px;
             text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
         }
         
         .header-content {
@@ -61,6 +64,7 @@
             margin-bottom: 10px;
             font-weight: 700;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .header .subtitle {
@@ -68,6 +72,7 @@
             opacity: 0.9;
             margin-bottom: 25px;
             font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         
         .contact-info {
@@ -100,7 +105,8 @@
         
         .content {
             padding: 50px 40px;
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
         
         .section {
@@ -117,6 +123,7 @@
             align-items: center;
             gap: 12px;
             font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
         
         .profile-text {
@@ -133,7 +140,8 @@
         }
         
         .skill-item {
-            background: #f8f9fa;
+            background: rgba(248, 249, 250, 0.9);
+            backdrop-filter: blur(5px);
             padding: 20px;
             border-radius: 10px;
             border-left: 5px solid #000;
@@ -142,10 +150,10 @@
         }
         
         .skill-item:hover {
-            background: #000;
+            background: rgba(0, 0, 0, 0.9);
             color: white;
             transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
         
         .skill-item strong {
@@ -228,7 +236,8 @@
         }
         
         .education-item {
-            background: #f8f9fa;
+            background: rgba(248, 249, 250, 0.9);
+            backdrop-filter: blur(5px);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 15px;
@@ -237,10 +246,10 @@
         }
         
         .education-item:hover {
-            background: #000;
+            background: rgba(0, 0, 0, 0.9);
             color: white;
             transform: scale(1.02);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
         
         .cert-grid {
