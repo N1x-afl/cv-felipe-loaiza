@@ -307,6 +307,83 @@
             z-index: 1;
         }
         
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #000;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.85);
+            border-left-color: #666;
+        }
+        
+        .portfolio-header {
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-title {
+            font-size: 1.3em;
+            color: #000;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .portfolio-description {
+            color: #000;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            background: #000;
+            color: white;
+            transform: translateX(5px);
+        }
+        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -323,6 +400,9 @@
             }
             .section-title {
                 font-size: 1.4em;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -356,6 +436,77 @@
                 <p class="profile-text">
                     Técnico en Sistemas Informáticos con más de 5 años de experiencia en soporte técnico nivel 1 y 2. Especialista en optimización de entornos operativos (Windows/Linux), virtualización y seguridad informática. Proactivo, con gran capacidad de resolución de incidentes críticos y orientado a la mejora continua de los servicios IT. Actualmente enfocado en desarrollar mi carrera en administración de servidores, virtualización avanzada, tecnologías de contenedores y ciberseguridad.
                 </p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">💼 PORTFOLIO DE PROYECTOS</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-header">
+                            <h3 class="portfolio-title">🖥️ HomeLab con VMware ESXi</h3>
+                            <div class="portfolio-tags">
+                                <span class="tag">VMware ESXi</span>
+                                <span class="tag">HP ProLiant</span>
+                                <span class="tag">Linux</span>
+                                <span class="tag">Contenedores</span>
+                            </div>
+                        </div>
+                        <p class="portfolio-description">
+                            Instalación y configuración de Hypervisor ESXi en servidor físico HP ProLiant ML110 G6 para el despliegue de máquinas virtuales (VM) Linux, configuración de contenedores y sistemas de monitoreo.
+                        </p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-header">
+                            <h3 class="portfolio-title">📊 Sistema de Monitoreo con Zabbix y Grafana</h3>
+                            <div class="portfolio-tags">
+                                <span class="tag">Zabbix</span>
+                                <span class="tag">Grafana</span>
+                                <span class="tag">Monitoreo</span>
+                                <span class="tag">Infraestructura</span>
+                            </div>
+                        </div>
+                        <p class="portfolio-description">
+                            Implementación de infraestructura de monitoreo para visualización de métricas y alertas en tiempo real, permitiendo supervisión proactiva de servicios y recursos IT.
+                        </p>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-header">
+                            <h3 class="portfolio-title">🔒 Landing Page Cybersecurity</h3>
+                            <div class="portfolio-tags">
+                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Vercel</span>
+                                <span class="tag">Seguridad</span>
+                            </div>
+                        </div>
+                        <p class="portfolio-description">
+                            Desarrollo de landing page especializada en servicios de ciberseguridad, con diseño moderno, animaciones interactivas y presentación profesional de soluciones de seguridad informática.
+                        </p>
+                        <a href="https://cybersecurity-landing-page-six.vercel.app/" target="_blank" class="portfolio-link">
+                            Ver Proyecto →
+                        </a>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-header">
+                            <h3 class="portfolio-title">🌐 Landing Page Felipe Soluciones IT</h3>
+                            <div class="portfolio-tags">
+                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Vercel</span>
+                                <span class="tag">Responsive</span>
+                            </div>
+                        </div>
+                        <p class="portfolio-description">
+                            Desarrollo de landing page profesional para servicios de soporte técnico IT, con diseño responsive, animaciones modernas y formulario de contacto integrado.
+                        </p>
+                        <a href="https://felipe-soluciones-it.vercel.app" target="_blank" class="portfolio-link">
+                            Ver Proyecto →
+                        </a>
+                    </div>
+                </div>
             </div>
             
             <div class="section">
